@@ -91,8 +91,6 @@ class BlackHolesMassFunction:
         # -----------------------
         L_theory = self.accretionrate.params.lb_mean_par  # L_sun
         M_theory = self.accretionrate.params.mbh_par  # M_sun
-        eta = self.accretionrate.params.eta_par
-        f_theory = eta / (1 - eta)  # efficiency placeholder
         speed_of_light = self.accretionrate.params.speed_light  # cm/s
 
         # Physical constants for unit conversion
@@ -106,7 +104,6 @@ class BlackHolesMassFunction:
 
         L_ref = L_theory * L_sun      # erg/s
         M_ref = M_theory * M_sun     # g
-        f_ref = f_theory
 
         # -----------------------
         # Time scale T0 in Gyr
@@ -159,7 +156,7 @@ class BlackHolesMassFunction:
             dt_cfl = C_CFL * T0 * dx / max(umax, 1e-30)
 
             if dt > dt_cfl:
-                # raise to force user to refine redshift stepping (as you described).
+                # raise to force user to refine redshift stepping.
                 raise RuntimeError(
                     f"CFL condition violated: dt={dt:.3e} Gyr > dt_cfl={dt_cfl:.3e} Gyr at z={z:.3f} (umax={umax:.3e}), T0 = {T0}"
                 )
@@ -198,8 +195,7 @@ class BlackHolesMassFunction:
                 # boundaries remain as computed (or could be set to zero influx)
                 n_new = n_lf
 
-            # enforce positivity
-            # n_new = np.maximum(n_new, 0.0)
+            # update solution
             n_ln = n_new
 
             # diagnostics (logger)
