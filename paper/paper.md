@@ -58,6 +58,7 @@ This software consolidates and operationalizes more than a decade of research in
 
 STARFORGE provides a unified and reproducible software implementation of these previously published methodologies. By translating established theoretical and numerical models into a modular and extensible codebase, the software enables independent verification of earlier results and facilitates their application to new datasets and inverse-problem formulations. The inclusion of documented workflows and reproducible numerical experiments constitutes concrete evidence of research impact by lowering barriers to reuse and supporting methodological transparency.
 
+
 # AI usage disclosure
 
 Generative AI tools were used in a limited and assistive capacity during the development of this work. GitHub Copilot was employed for code completion and the generation of initial docstring templates. All code produced with AI assistance was reviewed, modified where necessary, and validated by the authors through testing and comparison with expected physical and numerical behavior.
