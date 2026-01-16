@@ -23,13 +23,12 @@ bibliography: paper.bib
 
 # Summary 
 
-Supermassive black holes (SMBHs) are ubiquitous in the nuclei of massive galaxies, yet their formation pathways and early growth mechanisms remain uncertain. Proposed seeding scenarios range from the remnants of massive Population III stars to the direct collapse of supermassive stars in atomically cooled dark-matter halos. Inferring the properties of these primordial seeds from present-day observations is intrinsically difficult, as the observable SMBH population has undergone complex, nonlinear evolution driven by accretion, mergers, and cosmological structure formation.
+Supermassive black holes (SMBHs) are ubiquitous in the nuclei of massive galaxies, yet their formation pathways and early growth mechanisms remain poorly constrained. Proposed seeding scenarios range from the remnants of massive Population III stars to the direct collapse of supermassive stars in atomically cooled dark-matter halos. Inferring the properties of these primordial seeds from present-day observations is intrinsically challenging, as the observable SMBH population has undergone complex, nonlinear evolution driven by accretion, mergers, and cosmological structure formation.
 
-Conventional studies typically adopt a forward-modelling strategy, in which parametrized dynamical or semi-analytical models are evolved numerically and tuned to reproduce observational data. While physically motivated, this approach is computationally expensive, sensitive to modeling assumptions, and often suffers from parameter degeneracies that limit its ability to uniquely constrain the initial SMBH mass function.
+Most existing studies adopt forward-modelling approaches, in which parametrized dynamical or semi-analytical models are evolved numerically and calibrated against observational data. Although physically well motivated, these methods are computationally expensive, sensitive to modeling assumptions, and often affected by parameter degeneracies that limit their ability to uniquely constrain the initial SMBH mass function.
 
-In this work, we introduce an inverse-problem-based framework aimed at reconstructing the primordial SMBH mass function while consistently accounting for cosmological evolution. Rather than focusing on precise astrophysical constraints, the primary objective is to assess the stability, robustness, and reliability of the inversion methodology itself.
+STARFORGE was developed as an inverse-problem-based software framework to reconstruct the primordial SMBH mass function and the cosmic star formation rate while consistently accounting for cosmological evolution. The software enables systematic exploration of alternative evolutionary prescriptions and supports robustness and stability analyses of inversion methodologies. In addition, STARFORGE provides tools to model the coupled evolution of cosmic star formation and SMBHs across different cosmological scenarios, including their associated gravitational-wave emission.
 
-To support this analysis, we employ STARFORGE, a scientific software platform developed to investigate cosmic star formation and the formation and evolution of SMBHs across different cosmological scenarios, including their associated gravitational-wave emission.
 
 # Statement of need
 
