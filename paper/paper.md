@@ -36,3 +36,20 @@ Active Galactic Nuclei (AGN) are powered by supermassive black holes (SMBHs) sur
 Most current studies of SMBH formation and growth adopt forward-modelling approaches, in which seed populations are evolved under prescribed models for accretion, mergers, and cosmological expansion `[@yu2002observational,@shankar2013accretion; @tucci2017constraining,@lai2024supermassive]`. While physically well motivated, these methods are computationally demanding, highly sensitive to modelling assumptions and priors, and poorly suited to inverse problems, such as reconstructing the primordial SMBH population from present-day observables. Moreover, large-scale cosmological simulations are not designed for rapid experimentation with alternative evolutionary operators or inversion techniques.
 
 STARFORGE addresses this gap by providing a modular and transparent software framework for modeling the coupled evolution of cosmic star formation and SMBH seed formation and growth under different cosmological assumptions. Its architecture is specifically designed to support inverse-problem methodologies, enabling systematic testing of the stability and robustness of reconstruction techniques while maintaining computational efficiency and reproducibility.
+
+# Research Impact Statement
+
+This software consolidates and operationalizes more than a decade of research in extragalactic astrophysics. The underlying  mathematical framework for modeling the cosmic star formation rate was first introduced in `@pereira2010stochastic`. Subsequent studies extended this approach to the reconstruction of the formation and growth history of supermassive black holes (SMBHs) under cosmological evolution, with key results presented in `@pereira2010massive`, `@pereira2011supermassive`, `@pereira2014accretion`, and `@pereira2019towards`.
+
+STARFORGE provides a unified and reproducible software implementation of these previously published methodologies. By translating established theoretical and numerical models into a modular and extensible codebase, the software enables independent verification of earlier results and facilitates their application to new datasets and inverse-problem formulations. The inclusion of documented workflows and reproducible numerical experiments constitutes concrete evidence of research impact by lowering barriers to reuse and supporting methodological transparency.
+
+# AI usage disclosure
+
+Generative AI tools were used in a limited and assistive capacity during the development of this work. GitHub Copilot was employed for code completion and the generation of initial docstring templates. All code produced with AI assistance was reviewed, modified where necessary, and validated by the authors through testing and comparison with expected physical and numerical behavior.
+
+In addition, a large language model (ChatGPT) was used to assist with language editing and clarity improvements in the manuscript text. The scientific content, structure, and conclusions were defined by the authors, and all AI-suggested revisions were critically reviewed to ensure accuracy, consistency, and compliance with scholarly standards.
+
+
+# Acknowledgements
+
+# References
