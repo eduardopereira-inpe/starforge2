@@ -70,7 +70,7 @@ In addition, a large language model (ChatGPT) was used to assist with language e
 
 # Acknowledgements
 
-The authors acknowledge the National Institute for Space Research. And FAPESP.
+The authors acknowledge the National Institute for Space Research. 
 
 
 
