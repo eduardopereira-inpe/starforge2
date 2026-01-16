@@ -1,23 +1,25 @@
 ---
-title: 'STARFORGE - STellar And black hole Rate FORmation & Gravitational Emission'
+title: "STARFORGE: Stellar and black hole formation rates and gravitational emission"
 tags:
   - Python
   - astronomy
   - black holes
-  - inverse problem
-  - Active Galact Nuclei
+  - inverse problems
+  - active galactic nuclei
 
 authors:
   - name: Eduardo S. Pereira
     orcid: 0000-0002-1564-2933
-    equal-contrib: true
-    affiliation: "1"
-affiliations:
- - name: COPDT, INPE -Instituto Nacional de Pesquisas Espaciais, Av. dos Astronautas, 1758 {S\~ao Jos\'e dos Campos}, SP, Brazil
-   index: 1
+    affiliation: 1
 
-date: 16 Janurary 2026
+affiliations:
+  - name: National Institute for Space Research (INPE), São José dos Campos, SP, Brazil
+    index: 1
+
+date: 2026-01-16
 bibliography: paper.bib
+---
+
 
 # Summary 
 
