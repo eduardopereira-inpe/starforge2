@@ -56,9 +56,10 @@ Overall, STARFORGE is intentionally designed as a flexible research framework ra
 
 # Research Impact Statement
 
-This software consolidates and operationalizes more than a decade of research in extragalactic astrophysics. The underlying  mathematical framework for modeling the cosmic star formation rate was first introduced in `@pereira2010stochastic`. Subsequent studies extended this approach to the reconstruction of the formation and growth history of supermassive black holes (SMBHs) under cosmological evolution, with key results presented in `@pereira2010massive`, `@pereira2011supermassive`, `@pereira2014accretion`, and `@pereira2019towards`.
+This software consolidates and operationalizes more than a decade of research in extragalactic astrophysics. The underlying mathematical framework for modeling the cosmic star formation rate was first introduced in `@pereira2010stochastic`. Subsequent studies extended this approach to the reconstruction of the formation and growth history of supermassive black holes (SMBHs) under cosmological evolution, with key results presented in `@pereira2010massive`, `@pereira2011supermassive`, `@pereira2014accretion`, and `@pereira2019towards`.
 
-STARFORGE provides a unified and reproducible software implementation of these previously published methodologies. By translating established theoretical and numerical models into a modular and extensible codebase, the software enables independent verification of earlier results and facilitates their application to new datasets and inverse-problem formulations. The inclusion of documented workflows and reproducible numerical experiments constitutes concrete evidence of research impact by lowering barriers to reuse and supporting methodological transparency.
+STARFORGE provides a unified and reproducible software implementation of these previously published methodologies and is now released as an open-source codebase. By making the software publicly available, this work enables independent verification of earlier results and facilitates their reuse, extension, and application to new datasets and inverse-problem formulations. The inclusion of documented workflows and reproducible numerical experiments constitutes concrete evidence of research impact by lowering barriers to reuse, promoting methodological transparency, and supporting community-driven development.
+
 
 
 # AI usage disclosure
