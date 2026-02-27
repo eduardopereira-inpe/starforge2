@@ -202,6 +202,7 @@ class ParametersRecovery:
         target_data: np.ndarray,
         weight_p: float = 0.03,
         weight_theta: float = 0.03,
+        log_scale: bool = False,
     ) -> float:
         """
         Computes the objective function value for a given set of parameters.
@@ -232,6 +233,10 @@ class ParametersRecovery:
         except Exception as e:
             # print("Error in direct problem solver:", e)
             return np.inf
+
+        if log_scale:
+            target_data = np.log10(target_data + 1e-15)
+            outputs.n_final = np.log10(outputs.n_final + 1e-15)
 
         # loss = np.linalg.norm(outputs.n_final - target_data, 2)
 
@@ -358,7 +363,7 @@ class ParametersRecovery:
             x0=best.x,
             bounds=bounds,
             strategy="best1bin",
-            maxiter=1200,
+            maxiter=30,
             popsize=20,
             tol=0.01,
             mutation=(0.5, 1),
