@@ -458,7 +458,7 @@ class ParametersRecovery:
         if fast_mode:
 
             # --- Dual Annealing ---
-            da_maxiter = 30
+            da_maxiter = 200
             da_initial_temp = 500.0
             da_visit = 2.2
             da_accept = -10.0
