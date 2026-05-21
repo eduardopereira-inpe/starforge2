@@ -47,6 +47,34 @@ RegularizationResult: TypeAlias = Tuple[
 ]
 
 
+class StagnationStopping:
+    def __init__(self, patience=10, tolerance=1e-6, loss_function=None):
+        self.patience = patience          # Max generations to wait for improvement
+        self.tolerance = tolerance        # Minimum change to count as an improvement
+        self.best_energy = np.inf         # Tracks the best score found
+        self.generations_no_improve = 0   # Counter for stagnant generations
+        self.loss_function = loss_function  # Function to evaluate the current solution
+
+    def __call__(self, xk, convergence=None):
+        # SciPy passes the current best solution (xk) and convergence factor
+        # We evaluate the energy (fitness) of the current best solution
+        current_energy = self.loss_function(xk)
+
+        # Check if the improvement is significant
+        if current_energy < (self.best_energy - self.tolerance):
+            self.best_energy = current_energy
+            self.generations_no_improve = 0  # Reset counter
+        else:
+            self.generations_no_improve += 1  # Increment counter
+
+        # Return True to stop the optimization early
+        if self.generations_no_improve >= self.patience:
+            print(
+                f"\n[Early Stop] Stagnation detected. No improvement for {self.patience} generations.")
+            return True
+        return False
+
+
 class ParametersRecovery:
     """
     ParametersRecovery is a class designed to handle the optimization of an objective 
@@ -227,7 +255,7 @@ class ParametersRecovery:
         weight_theta: float = 0.03,
         log_scale: bool = False,
         return_components: bool = False,
-        loss_type: str = "l2"
+        loss_type: str = "smape"
     ) -> float:
         """
         Computes the objective function value for a given set of parameters.
@@ -430,7 +458,7 @@ class ParametersRecovery:
         if fast_mode:
 
             # --- Dual Annealing ---
-            da_maxiter = 40
+            da_maxiter = 30
             da_initial_temp = 500.0
             da_visit = 2.2
             da_accept = -10.0
@@ -442,8 +470,8 @@ class ParametersRecovery:
             lbfgs_ftol = 1e-6
 
             # --- Differential Evolution ---
-            de_maxiter = 5
-            de_popsize = 5
+            de_maxiter = 100
+            de_popsize = 10
 
         # ============================================================
         # FULL / PRODUCTION MODE
@@ -464,7 +492,7 @@ class ParametersRecovery:
             lbfgs_ftol = 1e-14
 
             # --- Differential Evolution ---
-            de_maxiter = 30
+            de_maxiter = 1200
             de_popsize = 20
 
         # ============================================================
@@ -558,9 +586,16 @@ class ParametersRecovery:
 
             print("Starting Differential Evolution refinement ...")
 
+            early_stopper = StagnationStopping(
+                patience=15,
+                tolerance=1e-5,
+                loss_function=local_objective
+            )
+
             result = differential_evolution(
                 local_objective,
                 bounds=bounds,
+                callback=early_stopper,
                 strategy="best1bin",
                 maxiter=de_maxiter,
                 popsize=de_popsize,
