@@ -256,7 +256,7 @@ class ParametersRecovery:
         log_scale: bool = False,
         return_components: bool = False,
         loss_type: str = "smape"
-    ) -> float:
+    ) -> dict | float:
         """
         Computes the objective function value for a given set of parameters.
 
@@ -345,6 +345,23 @@ class ParametersRecovery:
         # loss = mase(target_data, outputs.n_final)
         # --------------------------------------------------------------------------------
 
+        # # regularization_result = np.sum(np.diff(initial_condition) ** 2)
+        # epsilon = 1e-6 
+
+        # # Calcula a diferença relativa entre pontos vizinhos
+        # delta = np.diff(initial_condition)
+        # # Média local ou valor do ponto anterior para normalizar
+        # val_referencia = initial_condition[:-1] + epsilon
+
+        # regularization_result = np.sum((delta / val_referencia) ** 2)
+
+        # Aplica o logaritmo (pode ser necessário um pequeno offset
+        # se houver zeros)
+        # log_signal = np.log10(initial_condition + 1e-6)
+
+        # Suaviza no domínio logarítmico
+        # regularization_result = np.sum(np.diff(log_signal) ** 2)
+
         objective = float(loss + regularization)
 
         if return_components:
@@ -353,6 +370,7 @@ class ParametersRecovery:
                 "misfit": float(loss),
                 "R_p": float(R_p),
                 "R_theta": float(R_theta),
+                # "regularization_result": float(regularization_result),
             }
 
         return objective
@@ -480,7 +498,7 @@ class ParametersRecovery:
         else:
 
             # --- Dual Annealing ---
-            da_maxiter = 2000
+            da_maxiter = 200
             da_initial_temp = 5230.0
             da_visit = 2.62
             da_accept = -5.0
@@ -493,7 +511,7 @@ class ParametersRecovery:
 
             # --- Differential Evolution ---
             de_maxiter = 1200
-            de_popsize = 20
+            de_popsize = 100
 
         # ============================================================
         # OBJECTIVE CACHE

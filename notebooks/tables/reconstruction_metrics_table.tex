@@ -1,0 +1,28 @@
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcccc}
+\hline
+\textbf{Metric} & \textbf{1\% Noise} & \textbf{3\% Noise} & \textbf{5\% Noise} & \textbf{10\% Noise} \\
+\hline
+\multicolumn{5}{c}{\textbf{Initial Condition (z=5)}} \\
+NRMSE & 32.61\% & 72.28\% & 51.35\% & 109.61\% \\
+sMAPE & 65.84\% & 62.41\% & 28.06\% & 76.34\% \\
+MAPE* & 38.52\% & 81.57\% & 24.20\% & 78.05\% \\
+\hline
+\multicolumn{5}{c}{\textbf{Present Data (z=0)}} \\
+NRMSE & 14.82\% & 16.86\% & 23.64\% & 26.21\% \\
+sMAPE & 5.28\% & 9.52\% & 7.12\% & 16.00\% \\
+MAPE* & 4.84\% & 6.27\% & 5.19\% & 11.74\% \\
+\hline
+\end{tabular}
+
+\caption{
+Error metrics comparing reconstructed and reference data for different noise levels 
+in the present-day dataset. Each block reports the reconstruction quality for the 
+recovered initial condition at $z=5$ and for the present-day state at $z=0$. 
+Metrics shown are NRMSE (normalized root-mean-square error), sMAPE (symmetric mean 
+absolute percentage error), and MAPE* (modified mean absolute percentage error).
+}
+
+\label{tab:metrics1}
+\end{table}
